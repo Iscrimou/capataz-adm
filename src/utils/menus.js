@@ -1,7 +1,7 @@
 export const managementRegisterMenu = [
   {
     'title': 'Previsão/Compra e Venda',
-    'to': '/compra-venda-previsto'
+    'to': '/capataz-adm/compra-venda-previsto'
   }
 ];
 

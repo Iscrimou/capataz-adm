@@ -23,14 +23,14 @@ const Sidebar = () => {
   return (
     <div className="h-full bg-gray-800 text-white w-64 flex flex-col">
       <div className="px-4">
-        <Link to="/home">
+        <Link to="/capataz-adm/home">
           <img src={logo} alt="logo-capataz" />
         </Link>
       </div>
       <nav className="flex-1 overflow-auto">
         <ul>
           <li className="border-t border-b border-gray-600">
-            <Link to="/home" className="flex items-center p-4 hover:bg-gray-700">
+            <Link to="/capataz-adm/home" className="flex items-center p-4 hover:bg-gray-700">
               <FaTachometerAlt className="icon-default" /> Dashboard
             </Link>
           </li>

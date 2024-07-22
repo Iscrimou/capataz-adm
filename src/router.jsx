@@ -6,13 +6,13 @@ import CompraVendaPrevisto from "./pages/private/Cadastros/CompraVendaPrevisto";
 
 export const router = createBrowserRouter([
   { 
-    path: "/", 
+    path: "/capataz-adm/", 
     element: <Layout />,
     children: [
-      { path: '/', element: <Navigate to="/home" replace /> },
-      { path: '/home', element: <Dashboard /> },
-      { path: '/compra-venda-previsto', element: <CompraVendaPrevisto /> },
+      { path: '/capataz-adm/', element: <Navigate to="/capataz-adm/home" replace /> },
+      { path: '/capataz-adm/home', element: <Dashboard /> },
+      { path: '/capataz-adm/compra-venda-previsto', element: <CompraVendaPrevisto /> },
     ],
   },
-  { path: "/login", element: <LoginPage /> }
+  { path: "/capataz-adm/login", element: <LoginPage /> }
 ]); 
