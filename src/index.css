@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .icon-default {
+    @apply mr-3 text-gray-400;
+  }
+
+  .bg-gradient-capataz-green {
+    @apply bg-gradient-to-b from-green-700 to-green-900;
+  }
+}
