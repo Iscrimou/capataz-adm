@@ -1,5 +1,5 @@
 import { FaCalendarAlt } from "react-icons/fa";
-import CardDashboard from "../../components/ui/CardDashboard";
+import CardDashboard from "../../components/Dashboard/CardDashboard";
 import { FaDollarSign } from "react-icons/fa6";
 import TitleCard from "../../components/ui/TitleCard";
 import { Chart } from "primereact/chart";

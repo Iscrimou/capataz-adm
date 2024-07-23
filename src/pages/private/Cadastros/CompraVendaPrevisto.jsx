@@ -1,25 +1,31 @@
 import { useState } from "react";
 import Title from "../../../components/ui/Title";
-import Datatable from "../../../components/ui/Datatable";
+import DatatablePrevisto from "../../../components/Previsto/DatatablePrevisto";
 import Select from "../../../components/ui/Select";
 import { FaPlus, FaRegFileExcel, FaRegFilePdf } from "react-icons/fa";
+import Dialog from "../../../components/ui/Dialog";
+import FormPrevisto from "../../../components/Previsto/FormPrevisto";
 
 export default function CompraVendaPrevisto() {
+  const [isAddOpen, setIsAddOpen] = useState(false);
+  const [isEditOpen, setIsEditOpen] = useState(false);
+  const [selectedData, setSelectedData] = useState(false);
   const columns = [
-    { header: 'Cabeças', field: 'cabecas' },
-    { header: 'Espécie', field: 'especie' },
-    { header: 'Categoria', field: 'categoria' },
-    { header: 'Peso Médio', field: 'pesoMedio' },
-    { header: 'Preço', field: 'preco' },
-    { header: 'Total', field: 'total' },
-    { header: 'Data', field: 'data' }
+    { header: 'Cabeças', field: 'ammount' },
+    { header: 'Espécie', field: 'species' },
+    { header: 'Categoria', field: 'category' },
+    { header: 'Peso Médio', field: 'weight' },
+    { header: 'Preço', field: 'price' },
+    { header: 'Total', field: 'totalValue' },
+    { header: 'Data', field: 'date' }
   ];
 
-  const data = [
-    { id: 1, cabecas: 10, especie: 'Bovino', categoria: 'Bezerro', pesoMedio: 250, preco: 1500, total: 15000, data: '2024-01-01' },
-    { id: 2, cabecas: 15, especie: 'Ovino', categoria: 'Cordeiro', pesoMedio: 50, preco: 400, total: 6000, data: '2024-02-01' },
-    { id: 3, cabecas: 20, especie: 'Caprino', categoria: 'Cabrito', pesoMedio: 60, preco: 800, total: 16000, data: '2024-03-01' },
-    // Adicione mais dados conforme necessário
+  const compraData = [
+    { id: 1, type: 'compra', ammount: 10, species: 'bovino', category: 'bezerro', weight: 250, price: 1500, totalValue: 15000, date: '2024-01-01' },
+  ];
+  const vendaData = [
+    { id: 2, type: 'venda', ammount: 10, species: 'bovino', category: 'bezerro', weight: 250, price: 1500, totalValue: 15000, date: '2024-01-01' },
+    { id: 3, type: 'venda', ammount: 15, species: 'ovino', category: 'cordeiro', weight: 50, price: 400, totalValue: 6000, date: '2024-02-01' },
   ];
 
   const fazendaOptions = [
@@ -35,6 +41,15 @@ export default function CompraVendaPrevisto() {
     { value: '2023', label: '2023' },
     { value: '2024', label: '2024' }
   ];
+
+  const toogleAddDialog = () => {
+    setIsAddOpen(!isAddOpen);
+  };
+
+  const toggleEditDialog = (data) => {
+    setIsEditOpen(!isEditOpen);
+    setSelectedData(data);
+  };
 
   return (
     <div className="flex flex-col">
@@ -53,7 +68,7 @@ export default function CompraVendaPrevisto() {
           </div>
 
           <div className="flex gap-2">
-            <button title="Novo" className="text-blue-500 hover:bg-blue-200 rounded-full p-2" onClick={() => alert(`Novo`)}>
+            <button title="Novo" className="text-blue-500 hover:bg-blue-200 rounded-full p-2" onClick={toogleAddDialog}>
               <FaPlus />
             </button>
             <button title="Exportar PDF" className="rounded-full text-red-500 hover:bg-red-200 p-2 flex justify-center items-center">
@@ -64,8 +79,29 @@ export default function CompraVendaPrevisto() {
             </button>
           </div>
         </div>
-        <Datatable data={data} columns={columns} />
+
+        <DatatablePrevisto compraData={compraData} vendaData={vendaData} columns={columns} handleEdit={toggleEditDialog} />
       </div>
+
+      {isAddOpen && 
+        <div className="h-screen flex items-center justify-center">
+          <Dialog title='Novo Registro' content={
+            <div className="h-[calc(100%-50px)]">
+              <FormPrevisto action={'add'} onClose={toogleAddDialog} />
+            </div>
+          } onClose={toogleAddDialog} />
+        </div>
+      }
+
+      {isEditOpen && 
+        <div className="h-screen flex items-center justify-center">
+          <Dialog title='Editar Registro' content={
+            <div className="h-[calc(100%-50px)]">
+              <FormPrevisto action={'edit'} data={selectedData} onClose={toggleEditDialog} />
+            </div>
+          } onClose={toggleEditDialog} />
+        </div>
+      }
     </div>
   );
 }

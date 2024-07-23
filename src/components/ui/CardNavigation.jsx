@@ -8,7 +8,7 @@ export default function CardNavigation({title, links}) {
       </div>
       {
         links.length && links.map((link, i) => (
-          <Link to={link.to} >
+          <Link to={link.to} key={i} >
             <div className="py-4 px-2 hover:bg-gray-300">
               { link.title }
             </div>
