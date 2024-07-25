@@ -9,6 +9,7 @@ import FormPrevisto from "../../../components/Previsto/FormPrevisto";
 export default function CompraVendaPrevisto() {
   const [isAddOpen, setIsAddOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [selectedData, setSelectedData] = useState(false);
   const columns = [
     { header: 'Cabeças', field: 'ammount' },
@@ -51,6 +52,15 @@ export default function CompraVendaPrevisto() {
     setSelectedData(data);
   };
 
+  const toggleDeleteDialog = (data) => {
+    setIsDeleteOpen(!isDeleteOpen);
+    setSelectedData(data);
+  };
+
+  const handleSubmit = () => {
+    //
+  }
+
   return (
     <div className="flex flex-col">
       <Title content={'Previsto de Compra e Venda de Animais'} />
@@ -80,13 +90,13 @@ export default function CompraVendaPrevisto() {
           </div>
         </div>
 
-        <DatatablePrevisto compraData={compraData} vendaData={vendaData} columns={columns} handleEdit={toggleEditDialog} />
+        <DatatablePrevisto compraData={compraData} vendaData={vendaData} columns={columns} handleEdit={toggleEditDialog} handleDelete={toggleDeleteDialog} />
       </div>
 
       {isAddOpen && 
         <div className="h-screen flex items-center justify-center">
           <Dialog title='Novo Registro' content={
-            <div className="h-[calc(100%-50px)]">
+            <div className="h-[calc(100%-50px)] w-[800px]">
               <FormPrevisto action={'add'} onClose={toogleAddDialog} />
             </div>
           } onClose={toogleAddDialog} />
@@ -96,10 +106,30 @@ export default function CompraVendaPrevisto() {
       {isEditOpen && 
         <div className="h-screen flex items-center justify-center">
           <Dialog title='Editar Registro' content={
-            <div className="h-[calc(100%-50px)]">
+            <div className="h-[calc(100%-50px)] w-[800px]">
               <FormPrevisto action={'edit'} data={selectedData} onClose={toggleEditDialog} />
             </div>
           } onClose={toggleEditDialog} />
+        </div>
+      }
+      
+      {isDeleteOpen && 
+        <div className="h-screen flex items-center justify-center">
+          <Dialog title='Deletar Registro' content={
+            <div className="h-[calc(100%-50px)] flex flex-col justify-between">
+              <div className="flex items-center text-gray-400 p-4">
+                <span>Tem certeza que deseja remover esse registro?</span>
+              </div>
+              <div className="flex items-center justify-end gap-4 p-2 rounded-md bg-gray-200 border-t border-gray-300">
+                <button className="hover:bg-slate-300 text-slate-800 border-slate-800 border font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={toggleDeleteDialog}>
+                  Cancelar
+                </button>
+                <button className="bg-slate-800 hover:bg-slate-600 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" onClick={handleSubmit}>
+                  Deletar
+                </button>
+              </div>
+            </div>
+          } onClose={toggleDeleteDialog } />
         </div>
       }
     </div>

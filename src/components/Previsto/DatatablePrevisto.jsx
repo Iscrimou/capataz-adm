@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
-export default function DatatablePrevisto({ compraData, vendaData, columns, handleEdit }) {
+export default function DatatablePrevisto({ compraData, vendaData, columns, handleEdit, handleDelete }) {
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full border-collapse block md:table">
@@ -28,7 +28,7 @@ export default function DatatablePrevisto({ compraData, vendaData, columns, hand
                 <button title="Editar" className="text-blue-500 hover:bg-emerald-700 hover:text-blue-300 mx-1 rounded-full p-2" onClick={() => handleEdit(rowData)}>
                   <FaEdit />
                 </button>
-                <button title="Deletar" className="text-red-500 hover:bg-emerald-700 hover:text-red-300 mx-1 rounded-full p-2" onClick={() => alert(`Deletar: ${rowData.id}`)}>
+                <button title="Deletar" className="text-red-500 hover:bg-emerald-700 hover:text-red-300 mx-1 rounded-full p-2" onClick={() => handleDelete(rowData)}>
                   <FaTrashAlt />
                 </button>
               </td>
@@ -48,7 +48,7 @@ export default function DatatablePrevisto({ compraData, vendaData, columns, hand
                 <button title="Editar" className="text-blue-500 hover:bg-emerald-700 hover:text-blue-300 mx-1 rounded-full p-2" onClick={() => handleEdit(rowData)}>
                   <FaEdit />
                 </button>
-                <button title="Deletar" className="text-red-500 hover:bg-emerald-700 hover:text-red-300 mx-1 rounded-full p-2" onClick={() => alert(`Deletar: ${rowData.id}`)}>
+                <button title="Deletar" className="text-red-500 hover:bg-emerald-700 hover:text-red-300 mx-1 rounded-full p-2" onClick={() => handleDelete(rowData)}>
                   <FaTrashAlt />
                 </button>
               </td>
