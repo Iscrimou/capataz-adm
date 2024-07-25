@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
 export default function DatatablePrevisto({ compraData, vendaData, columns, handleEdit, handleDelete }) {
@@ -20,7 +19,7 @@ export default function DatatablePrevisto({ compraData, vendaData, columns, hand
             </td>
           </tr>
           {compraData.map((rowData, _rowIndex) => (
-            <tr key={rowData.id} className={"md:border-none odd:bg-emerald-400 even:bg-emerald-300 text-white md:table-row"}>
+            <tr key={rowData.id} className={"md:border-none odd:bg-emerald-400 even:bg-emerald-300 text-slate-900 md:table-row"}>
               {columns.map((col, colIndex) => (
                 <td key={colIndex} className="block md:table-cell p-2" onClick={() => alert('Olá')}>{rowData[col.field]}</td>
               ))}
@@ -40,7 +39,7 @@ export default function DatatablePrevisto({ compraData, vendaData, columns, hand
             </td>
           </tr>
           {vendaData.map((rowData, _rowIndex) => (
-            <tr key={rowData.id} className={"md:border-none odd:bg-emerald-400 even:bg-emerald-300 text-white md:table-row"}>
+            <tr key={rowData.id} className={"md:border-none odd:bg-emerald-400 even:bg-emerald-300 text-slate-900 md:table-row"}>
               {columns.map((col, colIndex) => (
                 <td key={colIndex} className="block md:table-cell p-2" onClick={() => alert('Olá')}>{rowData[col.field]}</td>
               ))}

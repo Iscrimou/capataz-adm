@@ -8,43 +8,43 @@ export const managementRegisterMenu = [
 export const managerReportMenu = [
   {
     'title': 'Divisões',
-    'to': '/divisoes'
+    'to': '/capataz-adm/divisoes'
   },
   {
     'title': 'Animais',
-    'to': '/animais'
+    'to': '/capataz-adm/animais'
   },
   {
     'title': 'Fluxo de Rebanho',
-    'to': '/fluxoderebanho'
+    'to': '/capataz-adm/fluxoderebanho'
   },
   {
     'title': 'Carga ou Lotação',
-    'to': '/cargaoulotacao'
+    'to': '/capataz-adm/cargaoulotacao'
   },
   {
     'title': 'Movim. Categorias',
-    'to': '/movimentacaocategorias'
+    'to': '/capataz-adm/movimentacaocategorias'
   },
   {
     'title': 'Movim. Divisões',
-    'to': '/movimentacaodivisoes'
+    'to': '/capataz-adm/movimentacaodivisoes'
   },
   {
     'title': 'Compra Animais',
-    'to': '/compraanimais'
+    'to': '/capataz-adm/compraanimais'
   },
   {
     'title': 'Venda Animais',
-    'to': '/vendaanimais'
+    'to': '/capataz-adm/vendaanimais'
   },
   {
     'title': 'Nasc. Animais',
-    'to': '/nascimentoanimais'
+    'to': '/capataz-adm/nascimentoanimais'
   },
   {
     'title': 'Mortes Animais',
-    'to': '/mortesanimais'
+    'to': '/capataz-adm/mortesanimais'
   }
 ];
 
