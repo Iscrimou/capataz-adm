@@ -44,7 +44,7 @@ export const managerReportMenu = [
   },
   {
     'title': 'Mortes Animais',
-    'to': '/capataz-adm/mortes-animais'
+    'to': '/capataz-adm/morte-animais'
   }
 ];
 
