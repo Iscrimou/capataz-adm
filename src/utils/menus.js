@@ -16,7 +16,7 @@ export const managerReportMenu = [
   },
   {
     'title': 'Fluxo de Rebanho',
-    'to': '/capataz-adm/fluxoderebanho'
+    'to': '/capataz-adm/fluxo-rebanho'
   },
   {
     'title': 'Carga ou Lotação',
