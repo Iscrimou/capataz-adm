@@ -5,7 +5,7 @@ export default function Datatable({ data, columns }) {
         <thead className="md:table-header-group border-b-2 border-gray-100">
           <tr className="md:border-none bg-emerald-500 text-white md:table-row">
             {columns.map((col, index) => (
-              <th key={index} className="md:table-cell p-2 text-left">{col.header}</th>
+              <th key={index} className="md:table-cell p-2 text-left border-r">{col.header}</th>
             ))}
           </tr>
         </thead>

@@ -5,6 +5,7 @@ import Dashboard from "./pages/private/Dashboard";
 import CompraVendaPrevisto from "./pages/private/Cadastros/CompraVendaPrevisto";
 import Animais from "./pages/private/Relatorios/Animais";
 import FluxoRebanho from "./pages/private/Relatorios/FluxoRebanho";
+import CargaLotacao from "./pages/private/Relatorios/CargaLotacao";
 
 export const router = createBrowserRouter([
   { 
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
       // relatórios
       { path: '/capataz-adm/animais', element: <Animais /> },
       { path: '/capataz-adm/fluxo-rebanho', element: <FluxoRebanho /> },
+      { path: '/capataz-adm/carga-lotacao', element: <CargaLotacao /> },
     ],
   },
   { path: "/capataz-adm/login", element: <LoginPage /> }

@@ -20,31 +20,31 @@ export const managerReportMenu = [
   },
   {
     'title': 'Carga ou Lotação',
-    'to': '/capataz-adm/cargaoulotacao'
+    'to': '/capataz-adm/carga-lotacao'
   },
   {
     'title': 'Movim. Categorias',
-    'to': '/capataz-adm/movimentacaocategorias'
+    'to': '/capataz-adm/movimentacao-categorias'
   },
   {
     'title': 'Movim. Divisões',
-    'to': '/capataz-adm/movimentacaodivisoes'
+    'to': '/capataz-adm/movimentacao-divisoes'
   },
   {
     'title': 'Compra Animais',
-    'to': '/capataz-adm/compraanimais'
+    'to': '/capataz-adm/compra-animais'
   },
   {
     'title': 'Venda Animais',
-    'to': '/capataz-adm/vendaanimais'
+    'to': '/capataz-adm/venda-animais'
   },
   {
     'title': 'Nasc. Animais',
-    'to': '/capataz-adm/nascimentoanimais'
+    'to': '/capataz-adm/nascimento-animais'
   },
   {
     'title': 'Mortes Animais',
-    'to': '/capataz-adm/mortesanimais'
+    'to': '/capataz-adm/mortes-animais'
   }
 ];
 

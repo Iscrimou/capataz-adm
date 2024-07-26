@@ -7,7 +7,7 @@ export default function DatatablePrevisto({ compraData, vendaData, columns, hand
         <thead className="block md:table-header-group border-b-2 border-gray-100">
           <tr className="md:border-none bg-emerald-500 text-white md:table-row">
             {columns.map((col, index) => (
-              <th key={index} className="block md:table-cell p-2 text-left">{col.header}</th>
+              <th key={index} className="block md:table-cell p-2 text-left border-r">{col.header}</th>
             ))}
             <th className="block md:table-cell p-2 text-left">Ações</th>
           </tr>
