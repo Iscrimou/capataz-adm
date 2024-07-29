@@ -62,7 +62,7 @@ export default function CompraVendaPrevisto() {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <Title content={'Previsto de Compra e Venda de Animais'} />
 
       <div className="mt-6 flex flex-col bg-white p-2 shadow-lg">

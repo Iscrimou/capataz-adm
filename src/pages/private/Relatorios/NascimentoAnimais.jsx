@@ -24,7 +24,7 @@ export default function NascimentoAnimais() {
   ];
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <Title content={'Relatório de Nascimento de Animais'} />
 
       <div className="mt-6 flex flex-col bg-white p-2 shadow-lg">

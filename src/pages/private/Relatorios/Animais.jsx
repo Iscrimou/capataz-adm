@@ -14,17 +14,17 @@ export default function Animais() {
   const columns = [
     { header: 'Categoria', field: 'category' },
     { header: 'Quantidade', field: 'ammount' },
-    { header: 'Divisão', field: 'division' },
+    { header: 'Divisão', field: 'division' }
   ];
 
   const data = [
     { id: 1, category: 'Éguas', ammount: 10, division: 'Recolhida' },
     { id: 2, category: 'Vacas Vazias', ammount: 15, division: 'Campo 1' },
-    { id: 3, category: 'Vacas Vazias', ammount: 20, division: 'Geral' },
+    { id: 3, category: 'Vacas Vazias', ammount: 20, division: 'Geral' }
   ];
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       <Title content={'Relatório de Animais'} />
 
       <div className="mt-6 flex flex-col bg-white p-2 shadow-lg">

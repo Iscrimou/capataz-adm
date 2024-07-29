@@ -12,6 +12,7 @@ import CompraAnimais from "./pages/private/Relatorios/CompraAnimais";
 import VendaAnimais from "./pages/private/Relatorios/VendaAnimais";
 import NascimentoAnimais from "./pages/private/Relatorios/NascimentoAnimais";
 import MorteAnimais from "./pages/private/Relatorios/MorteAnimais";
+import Divisoes from "./pages/private/Relatorios/Divisoes";
 
 export const router = createBrowserRouter([
   { 
@@ -23,6 +24,7 @@ export const router = createBrowserRouter([
       // cadastro
       { path: '/capataz-adm/compra-venda-previsto', element: <CompraVendaPrevisto /> },
       // relatórios
+      { path: '/capataz-adm/divisoes', element: <Divisoes /> },
       { path: '/capataz-adm/animais', element: <Animais /> },
       { path: '/capataz-adm/fluxo-rebanho', element: <FluxoRebanho /> },
       { path: '/capataz-adm/carga-lotacao', element: <CargaLotacao /> },

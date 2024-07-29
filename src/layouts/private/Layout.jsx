@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import logo from "../../assets/logo.png";
 import avatarDefault from "../../assets/avatar-default.png";
-import { FaCaretDown, FaCaretUp, FaChartLine, FaEye, FaFileAlt, FaTachometerAlt, FaUsers } from 'react-icons/fa';
+import { FaBars, FaCaretDown, FaCaretUp, FaChartLine, FaChevronLeft, FaEye, FaFileAlt, FaTachometerAlt, FaUsers } from 'react-icons/fa';
 import { Link, Outlet } from 'react-router-dom';
 import Avatar from '../../components/ui/Avatar';
 import CardNavigation from '../../components/ui/CardNavigation';
@@ -14,21 +14,26 @@ import {
   dolhoNoPastoMenu
 } from '../../utils/menus';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, toggleSidebar }) => {
   const [isCadastrosOpen, setCadastrosOpen] = useState(false);
   const [isRelatoriosOpen, setRelatoriosOpen] = useState(false);
   const [isGraficosOpen, setGraficosOpen] = useState(false);
   const [isDolhoOpen, setDolhoOpen] = useState(false);
 
   return (
-    <div className="h-full bg-gray-800 text-white w-64 flex flex-col">
+    <div className={`h-full w-64 flex flex-col bg-gray-800 text-white fixed lg:static transition-transform transform ${isOpen ? 'translate-x-0 z-50' : '-translate-x-full'} lg:translate-x-0`}>
+      <div className='flex justify-end p-4 lg:hidden'>
+        <button onClick={toggleSidebar}>
+          <FaChevronLeft />
+        </button>
+      </div>
       <div className="px-4">
         <Link to="/capataz-adm/home">
           <img src={logo} alt="logo-capataz" />
         </Link>
       </div>
-      <nav className="flex-1 overflow-auto">
-        <ul>
+      <nav className={`flex overflow-auto`}>
+        <ul className='w-full'>
           <li className="border-t border-b border-gray-600">
             <Link to="/capataz-adm/home" className="flex items-center p-4 hover:bg-gray-700">
               <FaTachometerAlt className="icon-default" /> Dashboard
@@ -104,9 +109,12 @@ const Sidebar = () => {
   );
 };
 
-const Header = () => {
+const Header = ({ toggleSidebar }) => {
   return (
     <div className="text-gray-500 p-4 flex justify-between shadow-2xl">
+      <button className="lg:hidden" onClick={toggleSidebar}>
+        <FaBars />
+      </button>
       <div className="text-lg">Gestão Simplificada para sua Fazenda! </div>
       <div className='border-l-2 flex justify-center items-cente'>
         <div className='ml-4 cursor-pointer'>
@@ -119,18 +127,24 @@ const Header = () => {
 
 const Content = () => {
   return (
-    <div className="flex-1 p-4 bg-gray-100 overflow-auto">
+    <div className="flex p-4 bg-gray-100">
       <Outlet />
     </div>
   );
 };
 
 const Layout = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <div className="flex h-screen">
-      <Sidebar />
-      <div className="flex flex-col flex-1">
-        <Header />
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <div className="flex flex-col w-full overflow-auto">
+        <Header toggleSidebar={toggleSidebar} />
         <Content />
       </div>
     </div>

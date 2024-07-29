@@ -93,7 +93,7 @@ const Header = () => {
 
 const Content = () => {
   return (
-    <div className="flex-1 p-4">
+    <div className="flex p-4">
       <h1 className="text-3xl">Conteúdo Principal</h1>
       <Outlet />
     </div>
@@ -104,7 +104,7 @@ const App = () => {
   return (
     <div className="flex h-screen">
       <Sidebar />
-      <div className="flex flex-col flex-1">
+      <div className="flex flex-col">
         <Header />
         <Content />
       </div>

@@ -134,7 +134,7 @@ const lineOptions = {
 };
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col w-full gap-8">
       <Title content={'Bem vindo, Capataz'} />
 
       <TitleCard border={'border-l-4 border-green-500'} title={'Suas Fazendas'} content={'São Carlos'} />
